@@ -1,25 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+
+const App = () => {
+  const [count,setCount] = useState(0);
+
+    const increment = () => {
+      setCount(count+1);
+    }
+
+    const decrement = () => {
+      setCount(count-1);
+    }
+
+    const increment2 = () => setCount(previous => previous+1);
+
+    const decrement2 = () => setCount(previous => previous-1);
+
+    const reset = () => setCount(previous => 0);
+
+    const x2 = () => setCount(count*2);
+
+    const div3 = () => setCount(previous => 
+      previous % 3 === 0 ? previous/3 : previous
+    )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>count:{count}</div>
+      <div>
+        <button onClick={increment}>+1</button>
+        <button onClick={decrement}>-1</button>
+      </div>
+      <div>
+        <button onClick={increment2}>+1</button>
+        <button onClick={decrement2}>-1</button>
+      </div>
+      <div>
+        <button onClick={reset}>reset</button>
+      </div>
+      <div>
+        <button onClick={x2}>x2</button>
+      </div>
+      <div>
+        <button onClick={div3}>3の倍数の時だけ3で割る</button>
+      </div>
+    </>
   );
 }
 

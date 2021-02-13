@@ -1,5 +1,7 @@
+import {useContext} from 'react';
 import React from 'react';
 import Event from './Event';
+import AppContext from '../contexts/AppContext';
 
 const Events = ({state,dispatch}) => {
   return(
